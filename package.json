@@ -20,7 +20,7 @@
   "author": "Josh Gachnang <josh@nang.io>",
   "repository": {
     "type": "git",
-    "url": "git@github.com:FlourishHealth/eslint-plugin-ferns.git"
+    "url": "git+ssh://git@github.com/FlourishHealth/eslint-plugin-ferns.git"
   },
   "license": "MIT",
   "devDependencies": {
