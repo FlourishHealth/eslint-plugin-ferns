@@ -1,7 +1,8 @@
 'use strict'
 
 const allRules = {
-  'use-effect-comment': require('./lib/rules/use-effect-comment')
+  'use-effect-comment': require('./lib/rules/use-effect-comment'),
+  'require-superagent-expect': require('./lib/rules/require-superagent-expect')
 }
 
 function configureAsError(rules) {
