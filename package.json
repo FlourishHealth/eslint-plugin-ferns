@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-ferns",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "ESLint plugin for full stack Express/React Native/Node.js applications",
   "main": "index.js",
   "scripts": {

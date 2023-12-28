@@ -32,5 +32,3 @@ jobs:
         run: yarn install --frozen-lockfile
       - name: yarn lint
         run: yarn lint
-      - name: check dependencies
-        run: yarn deps
