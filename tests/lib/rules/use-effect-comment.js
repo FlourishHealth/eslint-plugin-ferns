@@ -1,4 +1,4 @@
-const rule = require('../../../lib/rules/use-effect-comment')
+const rule = require('../../../rules/use-effect-comment')
 const RuleTester = require('eslint').RuleTester
 
 const ruleTester = new RuleTester({

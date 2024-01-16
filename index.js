@@ -1,8 +1,9 @@
 'use strict'
 
 const allRules = {
-  'use-effect-comment': require('./lib/rules/use-effect-comment'),
-  'require-superagent-expect': require('./lib/rules/require-superagent-expect')
+  'use-effect-comment': require('./rules/use-effect-comment'),
+  'require-superagent-expect': require('./rules/require-superagent-expect'),
+  'error-naming': require('./rules/error-naming')
 }
 
 function configureAsError(rules) {
@@ -360,8 +361,9 @@ module.exports = {
           }
         ],
 
-        'ferns/use-effect-comment': 'error'
-        // "ferns/require-superagent-expect": "error",
+        'ferns/use-effect-comment': 'error',
+        'ferns/require-superagent-expect': 'error',
+        'ferns/error-naming': 'error'
       }
     },
     all: {
