@@ -23,7 +23,7 @@ module.exports = {
     function checkErrorVariable(node) {
       if (node && node.name !== variableName) {
         context.report({
-          node: node,
+          node,
           message: 'Error variable must be named "{{name}}"',
           data: {
             name: variableName
@@ -45,4 +45,3 @@ module.exports = {
     }
   }
 }
-

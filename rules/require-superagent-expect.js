@@ -10,7 +10,7 @@ module.exports = {
     schema: [] // no options
   },
   create: function(context) {
-    let superagentVariables = new Map() // Track variables assigned from superagent calls
+    const superagentVariables = new Map() // Track variables assigned from superagent calls
 
     return {
       // Capture superagent calls in async/await context
@@ -18,7 +18,7 @@ module.exports = {
         if (node.argument.type === 'CallExpression' &&
                     node.argument.callee.type === 'MemberExpression' &&
                     node.argument.callee.object.name === 'familyMember2Agent') {
-          let parent = node.parent
+          const parent = node.parent
           if (parent.type === 'VariableDeclarator' && parent.id.type === 'Identifier') {
             // Store the variable name
             superagentVariables.set(parent.id.name, node.argument)
@@ -28,7 +28,7 @@ module.exports = {
       // Check each CallExpression for expect usage with stored variables
       CallExpression(node) {
         if (node.callee.name === 'expect' && node.arguments.length > 0) {
-          let arg = node.arguments[0]
+          const arg = node.arguments[0]
           if (arg.type === 'Identifier' && superagentVariables.has(arg.name)) {
             superagentVariables.delete(arg.name) // Found a matching expect call
           }
