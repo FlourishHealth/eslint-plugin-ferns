@@ -7,9 +7,9 @@ const allRules = {
 }
 
 function configureAsError(rules) {
-  var result = {}
-  for (var key in rules) {
-    if (!rules.hasOwnProperty(key)) {
+  const result = {}
+  for (const key in rules) {
+    if (!Object.prototype.hasOwnProperty.call(rules, key)) {
       continue
     }
     result['ferns/' + key] = 2
