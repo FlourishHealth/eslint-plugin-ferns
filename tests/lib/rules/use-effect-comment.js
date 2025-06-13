@@ -2,7 +2,9 @@ const rule = require('../../../rules/use-effect-comment')
 const RuleTester = require('eslint').RuleTester
 
 const ruleTester = new RuleTester({
-  parserOptions: { ecmaVersion: 2015, sourceType: 'module' }
+  languageOptions: {
+    parserOptions: { ecmaVersion: 2015, sourceType: 'module' }
+  }
 })
 
 ruleTester.run('require-comment-above-useeffect', rule, {

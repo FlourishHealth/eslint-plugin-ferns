@@ -1,13 +1,16 @@
-module.exports = {
+/** @type {import('eslint').Rule.RuleModule} */
+export default {
   meta: {
     type: 'suggestion',
     docs: {
       description: 'require a comment above all useEffect hooks',
-      category: 'Best Practices',
-      recommended: false
+      recommended: false,
+      url: null // URL to the documentation page for this rule
     },
-    fixable: null, // or "code" or "whitespace"
-    schema: []
+    messages: {
+      missingComment: 'Expected a comment above the useEffect hook.'
+    },
+    schema: [], // no options
   },
 
   create(context) {
@@ -15,21 +18,21 @@ module.exports = {
       CallExpression(node) {
         if (
           node.callee.name === 'useEffect' ||
-                    (node.callee.type === 'MemberExpression' &&
-                        node.callee.property.name === 'useEffect')
+          (node.callee.type === 'MemberExpression' &&
+            node.callee.property.name === 'useEffect')
         ) {
-          const sourceCode = context.getSourceCode()
-          const commentsBefore = sourceCode.getCommentsBefore(node)
+          const sourceCode = context.sourceCode;
+          const commentsBefore = sourceCode.getCommentsBefore(node);
 
           // Check if there is at least one comment before the useEffect
           if (commentsBefore.length === 0) {
             context.report({
               node,
-              message: 'Expected a comment above the useEffect hook.'
-            })
+              messageId: 'missingComment'
+            });
           }
         }
       }
-    }
+    };
   }
-}
+};
